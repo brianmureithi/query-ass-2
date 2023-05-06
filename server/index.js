@@ -82,6 +82,17 @@ app.post('/submit-to-cloud', (req, res) => {
   // Send a success response
   res.sendStatus(200);
 });
+
+/* Get books endpoint */
+app.get('/get_books', (req, res) => {
+    Book.find().then(function(books) {
+        res.json(books);
+      }).catch(function(error) {
+        console.log(error);
+        res.status(500).send("Error retrieving books");
+      });
+      
+  });
   
   
 

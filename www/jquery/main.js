@@ -50,32 +50,33 @@ $(document).ready(function() {
 
   /* Local storage  code */
   $(document).on('pagebeforeshow', '#local-data', function() {
-    var localDataList = $('#local-data-list');
+    let localDataList = $('#local-data-list');
   
     // Clear previous data
     localDataList.empty();
   
     // Get local storage data
-    var data = JSON.parse(localStorage.getItem('bookData'));
+    let data = JSON.parse(localStorage.getItem('bookData'));
   
     // Check if data exists
     if (data && data.length > 0) {
       $.each(data, function(index, item) {
         // Create list item
-        var li = $('<li>');
-        var img = $('<img>').attr('src', item.image).appendTo(li);
+        let li = $('<li>').css("margin-bottom","12px");
+        let img = $('<img>').attr('src', item.image).appendTo(li);
         $('<h2>').text(item.title).appendTo(li);
-        $('<p>').text(item.author).appendTo(li);
-        $('<p>').text(item.year_published).appendTo(li);
-        $('<p>').text(item.genre).appendTo(li);
-        $('<p>').text(item.pages).appendTo(li);
+        $('<p>').text(`Author: ${item.author}`).appendTo(li);
+        $('<p>').text(`Year Published: ${item.year_published}`).appendTo(li);
+        $('<p>').text(`Genre: ${item.genre}`).appendTo(li);
+        $('<p>').text(`Pages: ${item.pages}`).appendTo(li);
+        
   
         // Append list item to listview
         localDataList.append(li);
       });
     } else {
       // Display message if no data exists
-      var li = $('<li>').text('No local data found');
+      let li = $('<li>').text('No local data found');
       localDataList.append(li);
     }
   
@@ -110,6 +111,47 @@ $('#upload-data').on('click', function() {
     console.error(error);
   });
 });
+
+/* Get cloud data */
+let listLoaded = false;
+function loadList() {
+  // check if the list has already been loaded
+  if (listLoaded) {
+    return;
+  }
+   // When the cloud data page is shown, fetch the books data from the server
+   fetch('http://localhost:5000/get_books')
+   .then(response => response.json())
+   .then(data => {
+    listLoaded = true;
+     if (data.length === 0) {
+       $('#cloud-data-list').append($('<li>').text('No items found'));
+     } else {
+       // Clear the list before appending new data
+       $('#cloud-data-list').empty();
+       
+       data.forEach(item => {
+         var li = $('<li>').css("margin-bottom","12px");
+         let img = $('<img>').attr('src', item.image).appendTo(li);
+         $('<h2>').text('Title: ' + item.title).appendTo(li);
+         $('<p>').text('Author: ' + item.author).appendTo(li);
+         $('<p>').text('Year Published: ' + item.year_published).appendTo(li);
+         $('<p>').text('Genre: ' + item.genre).appendTo(li);
+         $('<p>').text('Pages: ' + item.pages).appendTo(li);
+         $('#cloud-data-list').append(li);
+       });
+     }
+     $('#cloud-data-list').listview('refresh');
+   })
+   .catch(error => alert(error.message));
+}
+
+$(document).on('pagebeforeshow', '#cloud-data', function() {
+  loadList();
+
+});
+
+
 
 
   
