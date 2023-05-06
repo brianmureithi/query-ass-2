@@ -1,4 +1,4 @@
-const books = [
+ const books = [
     {
       title: "To Kill a Mockingbird",
       author: "Harper Lee",
@@ -32,4 +32,6 @@ const books = [
       image: "https://images-na.ssl-images-amazon.com/images/I/71KZb-jPZoL.jpg"
     }
   ];
+
+  module.exports=books
   

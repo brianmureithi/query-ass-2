@@ -28,7 +28,10 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; connect-src http://localhost:5000;">
+        
+
+        <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; connect-src http://localhost:5000; img-src *">
 
 
         <meta name="format-detection" content="telephone=no">
@@ -58,15 +61,29 @@
         </div>
         <div data-role="content" class="no-scrollbar" id="content">
             <a href="#" data-role="button" data-icon="camera" data-iconpos="top" id="scan-button">Scan QR Code</a>
-			<a href="#" data-role="button" data-icon="eye" data-iconpos="top">Local Data</a>
+			<a href="#local-data" data-role="button" data-icon="eye" data-iconpos="top">Local Data</a>
 			<a href="#" data-role="button" data-icon="cloud" data-iconpos="top">Cloud Data</a>
-			<a href="#" data-role="button" data-icon="upload" data-iconpos="top">Upload Data</a>
+			<a href="#" id="upload-data" data-role="button" data-icon="upload" data-iconpos="top">Upload Data</a>
 		</div>
-		<div data-role="footer">
+		<div id="footer" data-role="footer">
 			<h4>Footer</h4>
 		</div>
       
         </div>
+        <div data-role="page" id="local-data"  class="app">
+            <div data-role="header" id="header" data-add-back-btn="true">
+              <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left" >Home</a>
+             
+            </div>
+            <div data-role="content" class="no-scrollbar" id="local-data-content">
+              <ul data-role="listview" data-inset="true" id="local-data-list">
+              </ul>
+            </div>
+            <div id="footer" data-role="footer">
+              <h4>Footer</h4>
+            </div>
+          </div>
+          
         <script src="./jquery/main.js"></script>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
