@@ -93,6 +93,18 @@ app.get('/get_books', (req, res) => {
       });
       
   });
+  app.delete('/delete_cloud_data', function(req, res) {
+    Book.deleteMany({})
+      .then(result => {
+        res.status(200).json({ message: 'Data deleted successfully', result: result });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ message: 'Failed to delete data from database' });
+      });
+  });
+  
+  
   
   
 

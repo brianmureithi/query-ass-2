@@ -113,42 +113,68 @@ $('#upload-data').on('click', function() {
 });
 
 /* Get cloud data */
-let listLoaded = false;
-function loadList() {
-  // check if the list has already been loaded
-  if (listLoaded) {
-    return;
-  }
-   // When the cloud data page is shown, fetch the books data from the server
-   fetch('http://localhost:5000/get_books')
-   .then(response => response.json())
-   .then(data => {
-    listLoaded = true;
-     if (data.length === 0) {
-       $('#cloud-data-list').append($('<li>').text('No items found'));
-     } else {
-       // Clear the list before appending new data
-       $('#cloud-data-list').empty();
-       
-       data.forEach(item => {
-         var li = $('<li>').css("margin-bottom","12px");
-         let img = $('<img>').attr('src', item.image).appendTo(li);
-         $('<h2>').text('Title: ' + item.title).appendTo(li);
-         $('<p>').text('Author: ' + item.author).appendTo(li);
-         $('<p>').text('Year Published: ' + item.year_published).appendTo(li);
-         $('<p>').text('Genre: ' + item.genre).appendTo(li);
-         $('<p>').text('Pages: ' + item.pages).appendTo(li);
-         $('#cloud-data-list').append(li);
-       });
-     }
-     $('#cloud-data-list').listview('refresh');
-   })
-   .catch(error => alert(error.message));
-}
 
 $(document).on('pagebeforeshow', '#cloud-data', function() {
-  loadList();
+ // When the cloud data page is shown, fetch the books data from the server
+ $('#cloud-data-list').empty();
+ const timestamp = new Date().getTime();
+  const url = `http://localhost:5000/get_books?timestamp=${timestamp}`;
+ fetch(url)
+ .then(response => response.json())
+ .then(data => {
+  listLoaded = true;
+   if (data.length === 0) {
+    $('#cloud-data-list').empty();
+     $('#cloud-data-list').append($('<li>').text('No items found'));
+   } else {
+     // Clear the list before appending new data
+     $('#cloud-data-list').empty();
+     
+     data.forEach(item => {
+       var li = $('<li>').css("margin-bottom","12px");
+       let img = $('<img>').attr('src', item.image).appendTo(li);
+       $('<h2>').text('Title: ' + item.title).appendTo(li);
+       $('<p>').text('Author: ' + item.author).appendTo(li);
+       $('<p>').text('Year Published: ' + item.year_published).appendTo(li);
+       $('<p>').text('Genre: ' + item.genre).appendTo(li);
+       $('<p>').text('Pages: ' + item.pages).appendTo(li);
+       $('#cloud-data-list').append(li);
+     });
+   }
+   $('#cloud-data-list').listview('refresh');
+ })
+ .catch(error => alert(error.message));
 
+});
+
+// Event listener for deleting local data
+$('#delete-local-data').on('click', function() {
+  try {
+    localStorage.clear();
+    alert('Local data has been successfully deleted.');
+    $('#menu-items').toggle();
+
+  } catch(error) {
+    alert('Error deleting local data: ' + error.message);
+    $('#menu-items').toggle();
+  }
+});
+
+// Event listener for deleting cloud data
+$('#delete-cloud-data').on('click', function() {
+  fetch('http://localhost:5000/delete_cloud_data', {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Cloud data has been successfully deleted.')
+      $('#menu-items').toggle();
+    } else {
+      alert('Error deleting cloud data: ' + response.status + ' ' + response.statusText);
+      $('#menu-items').toggle();
+    }
+  })
+  .catch(error => alert('Error deleting cloud data: ' + error.message));
 });
 
 
