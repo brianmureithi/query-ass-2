@@ -58,7 +58,17 @@ padding: 2rem 0.6rem;
     height: 75vh;
     overflow: scroll;
   }
-  #footer{
+  #local-data-content{
+    padding: 2rem 0.6rem;
+    height: 75vh;
+    overflow: scroll;
+  }
+  #cloud-data-content{
+    padding: 2rem 0.6rem;
+    height: 75vh;
+    overflow: scroll;
+  }
+  footer{
    height: 15vh;
   }
   .no-scrollbar::-webkit-scrollbar {
