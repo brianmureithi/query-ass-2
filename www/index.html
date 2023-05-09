@@ -42,61 +42,60 @@
         <link rel="stylesheet" href="./jquery/jquery.mobile-1.4.5.css" />
         <script src="./jquery/jquery.js"></script>
 
-        <script src="../jquery/jquery.mobile-1.4.5.js"></script>
+        <script src="./jquery/jquery.mobile-1.4.5.js"></script>
      
         <title>Assignment two </title>
     </head>
     <body>
-        <div data-role="page" id="home" class="app">
+      <div data-role="page" id="home" class="app">
+        <div data-role="header" id="header" data-add-back-btn="true">
+          <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left" >Home</a>
+          <a href="#" class="ui-btn-right" id="menu-button" data-icon="bars" data-iconpos="notext" data-role="button" data-transition="pop" data-theme="a">Menu</a>
+          <div id="menu-items">
+            <ul data-role="listview" data-inset="true">
+              <li><a id="delete-local-data" href="#">Delete Local Data</a></li>
+              <li><a id="delete-cloud-data"href="#">Delete Cloud Data</a></li>
+            </ul>
+          </div>
+         
+      </div>
+      <div data-role="content" class="no-scrollbar" id="content">
+          <a href="#" data-role="button" data-icon="camera" data-iconpos="top" id="scan-button">Scan QR Code</a>
+    <a href="#local-data" data-role="button" data-icon="eye" data-iconpos="top">Local Data</a>
+    <a href="#cloud-data" data-role="button"  data-icon="cloud" data-iconpos="top">Cloud Data</a>
+    <a href="#" id="upload-data"  data-role="button" data-icon="arrow-u" data-iconpos="top">Upload Data</a>
+  </div>
+  <div id="footer" data-role="footer">
+    <h4>Footer</h4>
+  </div>
+    
+      </div>
+        <div data-role="page" id="local-data"  class="app">
           <div data-role="header" id="header" data-add-back-btn="true">
             <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left" >Home</a>
-            <a href="#" class="ui-btn-right" id="menu-button" data-icon="bars" data-iconpos="notext" data-role="button" data-transition="pop" data-theme="a">Menu</a>
-            <div id="menu-items">
-              <ul data-role="listview" data-inset="true">
-                <li><a id="delete-local-data" href="#">Delete Local Data</a></li>
-                <li><a id="delete-cloud-data"href="#">Delete Cloud Data</a></li>
-              </ul>
-            </div>
            
-        </div>
-        <div data-role="content" class="no-scrollbar" id="content">
-            <a href="#" data-role="button" data-icon="camera" data-iconpos="top" id="scan-button">Scan QR Code</a>
-			<a href="#local-data" data-role="button" data-icon="eye" data-iconpos="top">Local Data</a>
-			<a href="#cloud-data" data-role="button"  data-icon="cloud" data-iconpos="top">Cloud Data</a>
-			<a href="#" id="upload-data"  data-role="button" data-icon="arrow-u" data-iconpos="top">Upload Data</a>
-		</div>
-		<div id="footer" data-role="footer">
-			<h4>Footer</h4>
-		</div>
-      
-        </div>
-        <div data-role="page" id="local-data"  class="app">
-            <div data-role="header" id="header" data-add-back-btn="true">
-              <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left" >Home</a>
-             
-            </div>
-            <div data-role="content" class="no-scrollbar" id="local-data-content">
-              <ul data-role="listview" data-inset="true" id="local-data-list">
-              </ul>
-            </div>
-            <div id="footer" data-role="footer">
-              <h4>Footer</h4>
-            </div>
           </div>
+          <div data-role="content" class="no-scrollbar" id="local-data-content">
+            <ul data-role="listview" data-inset="true" id="local-data-list">
+            </ul>
+          </div>
+          <div id="footer" data-role="footer">
+            <h4>Footer</h4>
+          </div>
+        </div>
 
-          <div data-role="page" id="cloud-data" class="app" data-dom-cache="false">
-            <div data-role="header" id="header" data-add-back-btn="true">
-              <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left">Home</a>
-            </div>
-            <div data-role="content" class="no-scrollbar" id="cloud-data-content">
-              <ul data-role="listview" data-inset="true" id="cloud-data-list">
-              </ul>
-            </div>
-            <div id="footer" data-role="footer">
-              <h4>Footer</h4>
-            </div>
+        <div data-role="page" id="cloud-data" class="app" data-dom-cache="false">
+          <div data-role="header" id="header" data-add-back-btn="true">
+            <a href="#home" class=" ui-icon-home  ui-btn-icon-left ui-btn-left">Home</a>
           </div>
-          
+          <div data-role="content" class="no-scrollbar" id="cloud-data-content">
+            <ul data-role="listview" data-inset="true" id="cloud-data-list">
+            </ul>
+          </div>
+          <div id="footer" data-role="footer">
+            <h4>Footer</h4>
+          </div>
+        </div>
           
         <script src="./jquery/main.js"></script>
         <script src="cordova.js"></script>

@@ -5,7 +5,7 @@
       year_published: 1960,
       pages: 281,
       genre: "Coming-of-age fiction",
-      image: "https://images-na.ssl-images-amazon.com/images/I/81jKnNzq3NL.jpg"
+      image: "morcking.jpg"
     },
     {
       title: "1984",
@@ -13,7 +13,7 @@
       year_published: 1949,
       pages: 328,
       genre: "Dystopian fiction",
-      image: "https://images-na.ssl-images-amazon.com/images/I/71QuWEI97aL.jpg"
+      image: "1984.jpg"
     },
     {
       title: "Pride and Prejudice",
@@ -21,7 +21,7 @@
       year_published: 1813,
       pages: 279,
       genre: "Romance novel",
-      image: "https://images-na.ssl-images-amazon.com/images/I/81Lk-5%2Bn6VL.jpg"
+      image: "prejudice.jpg"
     },
     {
       title: "The Catcher in the Rye",
@@ -29,7 +29,7 @@
       year_published: 1951,
       pages: 277,
       genre: "Coming-of-age fiction",
-      image: "https://images-na.ssl-images-amazon.com/images/I/71KZb-jPZoL.jpg"
+      image: "rye.jpg"
     }
   ];
 

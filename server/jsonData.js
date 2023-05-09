@@ -1,8 +1,7 @@
- const books = [
-  {"title":"To Kill a Mockingbird","author":"Harper Lee","year_published":1960,"pages":281,"genre":"Coming-of-age fiction","image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.v9icIoLnCWS5sKx2QSQBRgAAAA%26pid%3DApi&f=1&ipt=c71d709028c84ecdf9445ca81b5849d4e6b275b8b4eb6d1fef607c97d87b5a46&ipo=images"},
-  {"title":"1984","author":"George Orwell","year_published":1949,"pages":328,"genre":"Dystopian fiction","image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rQLhQOuMDbv9pyFu0vf-xwHaLX%26pid%3DApi&f=1&ipt=d54ce3858ebea0e572f189c415ca623511bc2a2d3a482f0a14c1bc0dd3326a2e&ipo=images"},
-  {"title":"Pride and Prejudice","author":"Jane Austen","year_published":1813,"pages":279,"genre":"Romance novel","image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.hYSaBJ0GYmarWiiHRZ2D-gHaEK%26pid%3DApi&f=1&ipt=41b50816e8c9042b00ede8b443a5814e0b5f769e2d7dc9fc818e2267804469da&ipo=images"},
-  {"title":"The Catcher in the Rye","author":"J.D. Salinger","year_published":1951,"pages":277,"genre":"Coming-of-age fiction","image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.h0iJZbuWxSjYiIZrHxt1-wHaLZ%26pid%3DApi&f=1&ipt=c5f4f0b8d769806fb26a056d79522afa709d07a51bfbcb07fd28462af52ed52b&ipo=images"}]
-
+ const books =[
+    {"title":"To Kill a Mockingbird","author":"Harper Lee","year_published":1960,"pages":281,"genre":"Coming-of-age fiction","image":"morcking.jpg"},
+ {"title":"1984","author":"George Orwell","year_published":1949,"pages":328,"genre":"Dystopian fiction","image":"1984.jpg"},
+ {"title":"Pride and Prejudice","author":"Jane Austen","year_published":1813,"pages":279,"genre":"Romance novel","image":"prejudice.jpg"},
+ {"title":"The Catcher in the Rye","author":"J.D. Salinger","year_published":1951,"pages":277,"genre":"Coming-of-age fiction","image":"rye.jpg"}]
   module.exports=books
   
