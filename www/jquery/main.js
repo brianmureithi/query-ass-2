@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   $(document).on('click', '#menu-button', function() {
     $('#menu-items').toggle();
+  
    
   });
 
@@ -51,7 +52,7 @@ $(document).ready(function() {
       $.each(data, function(index, item) {
         // Create list item
         let li = $('<li>').css("margin-bottom","12px");
-        let img = $('<img>').attr('src', item.image).appendTo(li);
+        let img = $('<img>').attr('src', `../img/${item.image}`).appendTo(li);
         $('<h2>').text(item.title).appendTo(li);
         $('<p>').text(`Author: ${item.author}`).appendTo(li);
         $('<p>').text(`Year Published: ${item.year_published}`).appendTo(li);
@@ -123,7 +124,7 @@ $(document).on('pagebeforeshow', '#cloud-data', function() {
      
      data.forEach(item => {
        var li = $('<li>').css("margin-bottom","12px");
-       let img = $('<img>').attr('src', item.image).appendTo(li);
+       let img = $('<img>').attr('src',  `../img/${item.image}`).appendTo(li);
        $('<h2>').text('Title: ' + item.title).appendTo(li);
        $('<p>').text('Author: ' + item.author).appendTo(li);
        $('<p>').text('Year Published: ' + item.year_published).appendTo(li);
